@@ -10,10 +10,10 @@ package figurasgeometricas;
  * @author Alumno
  */
 public class Posicion2D {
-    static double limMaxX=1000;
-    static double limMaxY=1000;
-    static double limMinY=-1000;
-    static double limMinX=-1000;
+    private static final double limMaxX=1000;
+    private static final double limMaxY=1000;
+    private static final double limMinY=-1000;
+    private static final double limMinX=-1000;
     private double x;
     private double y;
 
@@ -63,6 +63,34 @@ public class Posicion2D {
      */
     public void setY(double y) {
         this.y = y;
+    }
+
+    /**
+     * @return the limMaxX
+     */
+    public static double getLimMaxX() {
+        return limMaxX;
+    }
+
+    /**
+     * @return the limMaxY
+     */
+    public static double getLimMaxY() {
+        return limMaxY;
+    }
+
+    /**
+     * @return the limMinY
+     */
+    public static double getLimMinY() {
+        return limMinY;
+    }
+
+    /**
+     * @return the limMinX
+     */
+    public static double getLimMinX() {
+        return limMinX;
     }
 
 }
