@@ -27,12 +27,12 @@ public static void main(String[] args) {
     try {
         rectangulos.add(new Rectangulo(3,1,new Posicion2D(1,1)));
         } 
-    catch (DimensionIncorrectaException ex) {
+    catch (DimensionIncorrectaException | FueraDelPlanoException ex) {
         }
     try {
         rectangulos.add(new Rectangulo(4,2,new Posicion2D(0,0)));
     } 
-    catch (DimensionIncorrectaException ex) {
+    catch (DimensionIncorrectaException | FueraDelPlanoException ex) {
     }
     if (Solapamiento(rectangulos.get(0),rectangulos.get(1))){
         System.out.println("Se solapan");
