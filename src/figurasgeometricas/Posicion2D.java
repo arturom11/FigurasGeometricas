@@ -18,13 +18,13 @@ public class Posicion2D {
     private double y;
 
     public Posicion2D (double x,double y) throws FueraDelPlanoException{
-        if (x<=limMaxX || x>=limMinX){
+        if (x<=limMaxX && x>=limMinX){
             this.x=x;
             }
         else{
             throw new FueraDelPlanoException("Fuera del plano en el eje X");
         }
-        if (y<=limMaxY || x>=limMinY){
+        if (y<=limMaxY && x>=limMinY){
             this.y=y;
             }
         else{
@@ -64,7 +64,5 @@ public class Posicion2D {
     public void setY(double y) {
         this.y = y;
     }
-    
 
-    
 }
