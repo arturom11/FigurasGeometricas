@@ -40,7 +40,13 @@ public static void main(String[] args) {
     else{
         System.out.println("No se solapan");
     } 
+    try {
+    rectangulos.get(0).Mover(1010,2);
     }
+    catch (FueraDelPlanoException ex){
+        System.out.println("No se puede mover Fuera del Plano");
+    }
+}
   
  static boolean Solapamiento(Circulo cir1, Circulo cir2){
     return cir1.getPos().Distancia2D(cir2.getPos()) <= (cir1.getRadio()+cir2.getRadio());     
