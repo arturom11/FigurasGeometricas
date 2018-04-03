@@ -111,32 +111,65 @@ public class Triangulo extends Figura2D {
     public Posicion2D getC() {
         return C;
     }
-    @Override
-    public void MoverArriba(double dist){
+     public void MoverArriba(double dist)throws FueraDelPlanoException{
+    if (A.getLimMaxY()<= A.getY()+dist || B.getLimMaxY()<= B.getY()+dist || C.getLimMaxY()<= C.getY()+dist ){
+        throw new FueraDelPlanoException("Fuera del Plano");
+    }
+    else{
         A.setY(A.getY()+dist);
         B.setY(B.getY()+dist);
         C.setY(C.getY()+dist);
     }
+    }
+    
     @Override
-    public void MoverAbajo(double dist){
+    public void MoverAbajo(double dist)throws FueraDelPlanoException{
+    if (A.getLimMinY()>= A.getY()-dist || B.getLimMinY()>= B.getY()-dist || C.getLimMinY()>= C.getY()-dist){
+        throw new FueraDelPlanoException("Fuera del Plano");
+    }
+    else{
         A.setY(A.getY()-dist);
         B.setY(B.getY()-dist);
         C.setY(C.getY()-dist);
     }
+    }
+    
     @Override
-    public void MoverDerecha(double dist){
+    public void MoverDerecha(double dist)throws FueraDelPlanoException{
+    if (A.getLimMaxX()<= A.getX()+dist || B.getLimMaxX()<= B.getX()+dist || C.getLimMaxX()<= C.getX()+dist){
+        throw new FueraDelPlanoException("Fuera del Plano");
+    }
+    else{
         A.setX(A.getX()+dist);
         B.setX(B.getX()+dist);
         C.setX(C.getX()+dist);
     }
-    @Override
-    public void MoverIzquierda(double dist){
-        A.setX(A.getX()-dist);
-        B.setX(B.getX()-dist);
-        C.setX(C.getX()-dist);
     }
+    
     @Override
-    public void Mover(double distX,double distY){
+    public void MoverIzquierda(double dist)throws FueraDelPlanoException{
+    if (A.getLimMinX()>= A.getX()+dist || B.getLimMinX()>= B.getX()+dist || C.getLimMinX()>= C.getX()+dist){
+        throw new FueraDelPlanoException("Fuera del Plano");
+    }
+    else{
+        A.setX(A.getX()+dist);
+        B.setX(B.getX()+dist);
+        C.setX(C.getX()+dist);
+    }
+    }
+
+    @Override
+    public void Mover(double distX,double distY) throws FueraDelPlanoException{
+    if (
+        (A.getX()+distX) > A.getLimMaxX() ||
+        (B.getX()+distX) > B.getLimMaxX() ||
+        (C.getX()+distX) > C.getLimMaxX() ||
+        (A.getY()+distY) > A.getLimMaxY() ||
+        (B.getY()+distY) > B.getLimMaxY() ||
+        (C.getY()+distY) > C.getLimMaxY()){
+        throw new FueraDelPlanoException("Fuera del Plano");
+    }   
+    else{
         A.setX(A.getX()+distX);
         B.setX(B.getX()+distX);
         C.setX(C.getX()+distX);
@@ -144,6 +177,8 @@ public class Triangulo extends Figura2D {
         B.setY(B.getY()+distY);
         C.setY(C.getY()+distY);
     }
+    }
+    
     
     @Override
      public void Mover(Posicion2D pos)throws FueraDelPlanoException{
