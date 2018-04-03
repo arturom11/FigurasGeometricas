@@ -69,7 +69,7 @@ public class Triangulo extends Figura2D {
         return Tri&&Tri1&&Tri2&&Tri3;
     }
     
-    private Posicion2D Centro(){
+    private Posicion2D Centro()throws FueraDelPlanoException{
         double x1=A.getX();
         double y1=A.getY();
         double x2=B.getX();
