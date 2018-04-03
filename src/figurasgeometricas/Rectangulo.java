@@ -77,4 +77,36 @@ public class Rectangulo extends Figura2D {
     public Posicion2D getPos() {
         return pos;
     }
+    
+        @Override
+    public void MoverArriba(double dist){
+        pos.setY(pos.getY()+dist);
+    }
+    @Override
+    public void MoverAbajo(double dist){
+        pos.setY(pos.getY()-dist);
+    }
+    @Override
+    public void MoverDerecha(double dist){
+        pos.setX(pos.getX()+dist);
+    }
+    @Override
+    public void MoverIzquierda(double dist){
+        pos.setX(pos.getX()-dist);
+    }
+    @Override
+    public void Mover(Posicion2D nueva){
+        setPos(nueva);
+    }
+    @Override
+    public void Mover(double distX,double distY){
+        pos.setY(pos.getY()+distY);
+        pos.setX(pos.getX()+distX);
+    }
+    /**
+     * @param pos the pos to set
+     */
+    public void setPos(Posicion2D pos) {
+        this.pos = pos;
+    }
 }

@@ -9,7 +9,7 @@ package figurasgeometricas;
  *
  * @author utku31
  */
-public abstract class Figura2D extends Figura {
+public abstract class Figura2D extends Figura implements Movil {
     
    public abstract double Perimetro();
    public abstract boolean Pertenece(Posicion2D pos);

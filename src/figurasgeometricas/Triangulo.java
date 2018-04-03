@@ -10,9 +10,9 @@ package figurasgeometricas;
  * @author utku31
  */
 public class Triangulo extends Figura2D {
-    private final Posicion2D A;
-    private final Posicion2D B;
-    private final Posicion2D C;
+    private Posicion2D A;
+    private Posicion2D B;
+    private Posicion2D C;
     private final double l_a=Distancia(getA(),getB());
     private final double l_b=Distancia(getB(),getC());
     private final double l_c=Distancia(getC(),getA());
@@ -110,6 +110,67 @@ public class Triangulo extends Figura2D {
      */
     public Posicion2D getC() {
         return C;
+    }
+    @Override
+    public void MoverArriba(double dist){
+        A.setY(A.getY()+dist);
+        B.setY(B.getY()+dist);
+        C.setY(C.getY()+dist);
+    }
+    @Override
+    public void MoverAbajo(double dist){
+        A.setY(A.getY()-dist);
+        B.setY(B.getY()-dist);
+        C.setY(C.getY()-dist);
+    }
+    @Override
+    public void MoverDerecha(double dist){
+        A.setX(A.getX()+dist);
+        B.setX(B.getX()+dist);
+        C.setX(C.getX()+dist);
+    }
+    @Override
+    public void MoverIzquierda(double dist){
+        A.setX(A.getX()-dist);
+        B.setX(B.getX()-dist);
+        C.setX(C.getX()-dist);
+    }
+    @Override
+    public void Mover(double distX,double distY){
+        A.setX(A.getX()+distX);
+        B.setX(B.getX()+distX);
+        C.setX(C.getX()+distX);
+        A.setY(A.getY()+distY);
+        B.setY(B.getY()+distY);
+        C.setY(C.getY()+distY);
+    }
+    
+    @Override
+     public void Mover(Posicion2D pos)throws FueraDelPlanoException{
+        double distX=pos.getX()-Centro().getX();
+        double distY=pos.getY()-Centro().getY();
+        Mover(distX,distY);
+    }    
+
+    /**
+     * @param A the A to set
+     */
+    public void setA(Posicion2D A) {
+        this.A = A;
+    }
+
+    /**
+     * @param B the B to set
+     */
+    public void setB(Posicion2D B) {
+        this.B = B;
+    }
+
+    /**
+     * @param C the C to set
+     */
+    public void setC(Posicion2D C) {
+        this.C = C;
     }
 
 }
