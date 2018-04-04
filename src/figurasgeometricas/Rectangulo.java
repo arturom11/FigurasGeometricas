@@ -12,9 +12,9 @@ package figurasgeometricas;
 public class Rectangulo extends Figura2D {
     private final double base;
     private final double altura;
-    private Posicion2D pos;
     
     public Rectangulo(double base,double altura, Posicion2D pos) throws DimensionIncorrectaException{
+        super(pos);
         if (base>=0){
             this.base=base;
         }
@@ -27,7 +27,7 @@ public class Rectangulo extends Figura2D {
         else{
             throw new DimensionIncorrectaException("Altura incorrecta");
         }
-        this.pos=pos;
+        
     }
     
     @Override
@@ -71,70 +71,13 @@ public class Rectangulo extends Figura2D {
         return ((x1<=x+(getBase()/2)||x1>=x-(getBase()/2))&&(y1<=y+(getAltura()/2)||y1>=y-(getAltura()/2)));
     }
 
-    /**
-     * @return the pos
-     */
-    public Posicion2D getPos() {
-        return pos;
+        
+        @Override
+    protected void CalcularExtremos(Posicion2D nueva)throws FueraDelPlanoException{
+        Posicion2D Arizq=new Posicion2D(nueva.getX()-base/2,nueva.getY()+altura/2);
+        Posicion2D Arder=new Posicion2D(nueva.getX()+base/2,nueva.getY()+altura/2);
+        Posicion2D Abizq=new Posicion2D(nueva.getX()-base/2,nueva.getY()-altura/2);
+        Posicion2D Abder=new Posicion2D(nueva.getX()+base/2,nueva.getY()-altura/2);
     }
-    
- public void MoverArriba(double dist)throws FueraDelPlanoException{
-    if (pos.getLimMaxY()<= pos.getY()+dist){
-        throw new FueraDelPlanoException("Fuera del Plano");
-    }
-    else{
-        pos.setY(pos.getY()+dist);
-    }
-    }
-    
-    @Override
-    public void MoverAbajo(double dist)throws FueraDelPlanoException{
-    if (pos.getLimMinY()>= pos.getY()-dist){
-        throw new FueraDelPlanoException("Fuera del Plano");
-    }
-    else{
-        pos.setY(pos.getY()-dist);
-    }
-    }
-    
-    @Override
-    public void MoverDerecha(double dist)throws FueraDelPlanoException{
-    if (pos.getLimMaxX()<= pos.getX()+dist){
-        throw new FueraDelPlanoException("Fuera del Plano");
-    }
-    else{
-        pos.setX(pos.getX()+dist);
-    }
-    }
-    
-    @Override
-    public void MoverIzquierda(double dist)throws FueraDelPlanoException{
-    if (pos.getLimMinX()>= pos.getX()+dist){
-        throw new FueraDelPlanoException("Fuera del Plano");
-    }
-    else{
-        pos.setX(pos.getX()+dist);
-    }
-    }
-     
-    @Override
-    public void Mover(Posicion2D nueva)throws FueraDelPlanoException{
-        setPos(nueva);
-    }
-    
-     public void setPos(Posicion2D pos) {
-        this.pos = pos;
-    }
-    
-    @Override
-    public void Mover(double distX,double distY)throws FueraDelPlanoException{
-    if ((pos.getY()+distY)>pos.getLimMaxY() ||(pos.getX()+distX)>pos.getLimMaxX()||(pos.getX()+distX)<pos.getLimMinX() ||(pos.getY()+distY)<pos.getLimMinY()  ){
-        throw new FueraDelPlanoException("Fuera del plano");
-    }
-    else{
-        pos.setY(pos.getY()+distY);
-        pos.setX(pos.getX()+distX);
-    }
-    }
-}
 
+    }
