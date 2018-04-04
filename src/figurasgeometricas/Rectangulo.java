@@ -13,8 +13,9 @@ public class Rectangulo extends Figura2D {
     private final double base;
     private final double altura;
     
-    public Rectangulo(double base,double altura, Posicion2D pos) throws DimensionIncorrectaException{
+    public Rectangulo(double base,double altura, Posicion2D pos) throws DimensionIncorrectaException, FueraDelPlanoException{
         super(pos);
+        
         if (base>=0){
             this.base=base;
         }
@@ -27,7 +28,7 @@ public class Rectangulo extends Figura2D {
         else{
             throw new DimensionIncorrectaException("Altura incorrecta");
         }
-        
+        CalcularExtremos(pos);
     }
     
     @Override

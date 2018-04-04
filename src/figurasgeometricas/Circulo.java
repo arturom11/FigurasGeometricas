@@ -14,15 +14,17 @@ public class Circulo extends Figura2D {
     
 
     
-    public Circulo(double radio, Posicion2D pos) throws DimensionIncorrectaException{
-        //VerificarSiEstaDentroDelPlano(pos);
+    public Circulo(double radio, Posicion2D pos) throws DimensionIncorrectaException, FueraDelPlanoException{
         super(pos);
+        
         if (radio>=0){
             this.radio=radio;
         }
         else{
             throw new DimensionIncorrectaException("Radio Incorrecto");
         }
+        CalcularExtremos(pos);
+        
     }
     
       public String MostrarRadio() {
