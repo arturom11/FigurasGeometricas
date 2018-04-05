@@ -40,11 +40,16 @@ public static void main(String[] args) {
     else{
         System.out.println("No se solapan");
     } 
-    try {
-    rectangulos.get(0).Mover(1010,2);
+    try{
+        rectangulos.get(0).Mover(997.5,2);
     }
-    catch (FueraDelPlanoException ex){
-        System.out.println("No se puede mover Fuera del Plano");
+    catch(FueraDelPlanoException e){
+    }
+    try{
+        circulos.add(new Circulo(2,new Posicion2D(2,1)));
+    }
+    catch(FueraDelPlanoException | DimensionIncorrectaException e){
+        System.out.println("No se pudo crear algo fuera del plano");
     }
 }
   
