@@ -28,43 +28,79 @@ public double Distancia(Posicion2D p,Posicion2D q){
         }
 
  
+   @Override
     public void MoverArriba(double dist)throws FueraDelPlanoException{
-        Posicion2D nueva=new Posicion2D(getPos().getX(),getPos().getY()+dist);
-        VerificarSiEstaDentroDelPlano(nueva);
-        setPos(nueva);
+        try{
+            Posicion2D nueva=new Posicion2D(getPos().getX(),getPos().getY()+dist);
+            VerificarSiEstaDentroDelPlano(nueva);
+            setPos(nueva);
+        }
+        catch(FueraDelPlanoException e){
+            System.out.println("No se pudo mover fuera del plano");       
+        }
     }
     
 
+   @Override
     public void MoverAbajo(double dist)throws FueraDelPlanoException{
-        Posicion2D nueva=new Posicion2D(getPos().getX(),getPos().getY()-dist);
-        VerificarSiEstaDentroDelPlano(nueva);
-        setPos(nueva);
+        try{
+            Posicion2D nueva=new Posicion2D(getPos().getX(),getPos().getY()-dist);
+            VerificarSiEstaDentroDelPlano(nueva);
+            setPos(nueva);
+        }
+        catch(FueraDelPlanoException e){
+            System.out.println("No se pudo mover fuera del plano");       
+        }
     }
     
 
+   @Override
     public void MoverDerecha(double dist)throws FueraDelPlanoException{
-        Posicion2D nueva=new Posicion2D(getPos().getX()+dist,getPos().getY());
-        VerificarSiEstaDentroDelPlano(nueva);
-        setPos(nueva);
+        try{
+            Posicion2D nueva=new Posicion2D(getPos().getX()+dist,getPos().getY());
+            VerificarSiEstaDentroDelPlano(nueva);
+            setPos(nueva);
+        }
+        catch(FueraDelPlanoException e){
+            System.out.println("No se pudo mover fuera del plano");       
+        }
     }
     
 
+   @Override
     public void MoverIzquierda(double dist)throws FueraDelPlanoException{
-        Posicion2D nueva=new Posicion2D(getPos().getX()-dist,getPos().getY());
-        VerificarSiEstaDentroDelPlano(nueva);
-        setPos(nueva);
+        try{
+            Posicion2D nueva=new Posicion2D(getPos().getX()-dist,getPos().getY());
+            VerificarSiEstaDentroDelPlano(nueva);
+            setPos(nueva);
+        }
+        catch(FueraDelPlanoException e){
+            System.out.println("No se pudo mover fuera del plano");       
+        }
     }
      
 
+   @Override
     public void Mover(Posicion2D nueva)throws FueraDelPlanoException{
-        VerificarSiEstaDentroDelPlano(nueva);
-        setPos(nueva);
+        try{
+            VerificarSiEstaDentroDelPlano(nueva);
+            setPos(nueva);
+        }
+        catch(FueraDelPlanoException e){
+            System.out.println("No se pudo mover fuera del plano");       
+        }
     }
     
 
+   @Override
     public void Mover(double distX,double distY)throws FueraDelPlanoException{
-        Posicion2D nueva=new Posicion2D(getPos().getX()+distX,getPos().getY()+distY);
-        Mover(nueva);
+        try{
+            Posicion2D nueva=new Posicion2D(getPos().getX()+distX,getPos().getY()+distY);
+            Mover(nueva);
+        }    
+        catch(FueraDelPlanoException e){
+            System.out.println("No se pudo mover fuera del plano");       
+        }
     }
     
     protected abstract void CalcularExtremos(Posicion2D nueva)throws FueraDelPlanoException;
