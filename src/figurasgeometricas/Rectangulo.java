@@ -13,8 +13,8 @@ public class Rectangulo extends Figura2D {
     private final double base;
     private final double altura;
     
-    public Rectangulo(double base,double altura, Posicion2D pos) throws DimensionIncorrectaException, FueraDelPlanoException{
-        super(pos);
+    public Rectangulo(double base,double altura, Posicion2D pos, int nroOrden) throws DimensionIncorrectaException, FueraDelPlanoException{
+        super(pos, nroOrden);
         
         if (base>=0){
             this.base=base;
@@ -80,5 +80,5 @@ public class Rectangulo extends Figura2D {
         Posicion2D Abizq=new Posicion2D(nueva.getX()-base/2,nueva.getY()-altura/2);
         Posicion2D Abder=new Posicion2D(nueva.getX()+base/2,nueva.getY()-altura/2);
     }
-
+    
     }

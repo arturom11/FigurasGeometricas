@@ -11,12 +11,15 @@ package figurasgeometricas;
  */
 public abstract class Figura2D extends Figura implements Movil {
    private Posicion2D pos;
+   private int nroOrden;
+   private String id;
      
-   public abstract double Perimetro();
    public abstract boolean Pertenece(Posicion2D pos);
+   public abstract double Perimetro();
    
-public Figura2D(Posicion2D pos){
+public Figura2D(Posicion2D pos, int nroOrden){
     this.pos=pos;
+    this.nroOrden=nroOrden;
 }   
 
 public double Distancia(Posicion2D p,Posicion2D q){
@@ -122,5 +125,26 @@ public double Distancia(Posicion2D p,Posicion2D q){
     public void setPos(Posicion2D pos) {
         this.pos = pos;
     }
+  /**
+     * @return the nroOrden
+     */
+    public int getNroOrden() {
+        return nroOrden;
+    }
 
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id=NombreClase()+ Integer.toString(getNroOrden());
+    }
+    
+    public String NombreClase() {
+        return this.getClass().getSimpleName();
+    }
+    
+    @Override
+    public String toString(){
+        return this.getId();
+    }
 }

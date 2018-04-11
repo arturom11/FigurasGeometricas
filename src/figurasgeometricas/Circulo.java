@@ -14,8 +14,8 @@ public class Circulo extends Figura2D {
     
 
     
-    public Circulo(double radio, Posicion2D pos) throws DimensionIncorrectaException, FueraDelPlanoException{
-        super(pos);
+    public Circulo(double radio, Posicion2D pos, int nroOrden) throws DimensionIncorrectaException, FueraDelPlanoException{
+        super(pos,nroOrden);
         
         if (radio>=0){
             this.radio=radio;
