@@ -110,22 +110,24 @@ public void IniciarPlano(){
     private List OrdenarPorPerimetro(){
         TreeMap<String,Figura2D> mapa =new TreeMap<>();
         
-       for(Figura2D f: figuras){
-           String strinicial=Double.toString(f.Perimetro())+Integer.toString(f.getNroOrden());
-           mapa.put(strinicial,f); 
+        for(Figura2D f: figuras){
+            String strinicial=String.format("|%020f|", f.Perimetro());
+            strinicial=strinicial+Integer.toString(f.getNroOrden());
+            mapa.put(strinicial,f); 
         }
         return new ArrayList<>(mapa.values());
-  }
+    }
   
     private List OrdenarPorSuperficie(){
         TreeMap<String,Figura2D> mapa =new TreeMap<>();
         
         for(Figura2D f: figuras){
-            String strinicial=Double.toString(f.Superficie())+Integer.toString(f.getNroOrden());
+            String strinicial=String.format("|%020f|", f.Superficie());
+            strinicial=strinicial+Integer.toString(f.getNroOrden());
             mapa.put(strinicial,f); 
         }
 
         return new ArrayList<>(mapa.values());
-  }
+    }
 }
 
