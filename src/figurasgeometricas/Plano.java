@@ -34,16 +34,20 @@ public static void main(String[] args) {
 
 public void IniciarPlano(){
     try {
-        figuras.add(new Rectangulo(3,1,new Posicion2D(1,1),001));
+        Rectangulo rect=new Rectangulo(3,1,new Posicion2D(1,1),001);
+        figuras.add(rect);
+        rectangulos.add(rect);
         } 
     catch (DimensionIncorrectaException | FueraDelPlanoException ex) {
         }
     try {
-        figuras.add(new Rectangulo(4,2,new Posicion2D(0,0),002));
+        Rectangulo rect=new Rectangulo(4,2,new Posicion2D(0,0),002);
+        figuras.add(rect);
+        rectangulos.add(rect);
     } 
     catch (DimensionIncorrectaException | FueraDelPlanoException ex) {
     }
-    /*if (Solapamiento(rectangulos.get(0),rectangulos.get(1))){
+    if (Solapamiento(rectangulos.get(0),rectangulos.get(1))){
         System.out.println("Se solapan");
     }
     else{
@@ -53,9 +57,11 @@ public void IniciarPlano(){
         rectangulos.get(0).Mover(997.5,2);
     }
     catch(FueraDelPlanoException e){
-    }*/
+    }
     try{
-        figuras.add(new Circulo(2,new Posicion2D(2,1),003));
+        Circulo cir =new Circulo(2,new Posicion2D(2,1),003);
+        figuras.add(cir);
+        circulos.add(cir);
     }
     catch(FueraDelPlanoException | DimensionIncorrectaException e){
         System.out.println("No se pudo crear algo fuera del plano");
@@ -100,12 +106,13 @@ public void IniciarPlano(){
             System.out.println(f);
         }
     } 
-        
+       /*FALTA DAR FORMATO A STRINICIAL*/ 
     private List OrdenarPorPerimetro(){
         TreeMap<String,Figura2D> mapa =new TreeMap<>();
         
        for(Figura2D f: figuras){
-           mapa.put(Double.toString(f.Perimetro())+Integer.toString(f.getNroOrden()),f); 
+           String strinicial=Double.toString(f.Perimetro())+Integer.toString(f.getNroOrden());
+           mapa.put(strinicial,f); 
         }
         return new ArrayList<>(mapa.values());
   }
@@ -114,7 +121,8 @@ public void IniciarPlano(){
         TreeMap<String,Figura2D> mapa =new TreeMap<>();
         
         for(Figura2D f: figuras){
-           mapa.put(Double.toString(f.Superficie())+Integer.toString(f.getNroOrden()),f); 
+            String strinicial=Double.toString(f.Superficie())+Integer.toString(f.getNroOrden());
+            mapa.put(strinicial,f); 
         }
 
         return new ArrayList<>(mapa.values());
