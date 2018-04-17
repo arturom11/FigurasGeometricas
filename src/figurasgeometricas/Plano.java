@@ -41,7 +41,7 @@ public void IniciarPlano(){
     catch (DimensionIncorrectaException | FueraDelPlanoException ex) {
         }
     try {
-        Rectangulo rect=new Rectangulo(4,2,new Posicion2D(0,0),002);
+        Rectangulo rect=new Rectangulo(2.99,1,new Posicion2D(0,0),002);
         figuras.add(rect);
         rectangulos.add(rect);
     } 
@@ -59,7 +59,7 @@ public void IniciarPlano(){
     catch(FueraDelPlanoException e){
     }
     try{
-        Circulo cir =new Circulo(2,new Posicion2D(2,1),003);
+        Circulo cir =new Circulo(20,new Posicion2D(2,1),003);
         figuras.add(cir);
         circulos.add(cir);
     }
@@ -68,7 +68,6 @@ public void IniciarPlano(){
     }
     
 }   
-    
     
   
     static boolean Solapamiento(Circulo cir1, Circulo cir2){
