@@ -106,7 +106,7 @@ public void IniciarPlano(){
             System.out.println(f);
         }
     } 
-       /*FALTA DAR FORMATO A STRINICIAL*/ 
+
     private List OrdenarPorPerimetro(){
         TreeMap<String,Figura2D> mapa =new TreeMap<>();
         
